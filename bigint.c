@@ -55,17 +55,18 @@ void big_val (BigInt res, long val){
 /* res = a + b */
 void big_sum(BigInt res, BigInt a, BigInt b){
 
-	int s, ext = 0, n = 16;
+	unsigned int s, ext = 0, n = 0;
 
-	while (n--){
+	while (n<16){
 
-		s = a[n] + b[n] + ext
-		res[n] = s%128
-		ext = (s/128)*128	
+		s = a[n] + b[n] + ext;
+		res[n] = s%256;
+		ext = (s/255);
+		n++;
 
 	}
-
-	
+	return;
+}	
 
 	
 
@@ -73,10 +74,21 @@ void big_sum(BigInt res, BigInt a, BigInt b){
 /* res = -a */
 void big_comp2(BigInt res, BigInt a){
 
-	int n = 16;
+	int n = 0;
+	BigInt num_1;
+
+	big_val(num_1,1);
 	
-	while (n--)
-		res[n] = ~(a[n]);
+	while (n<16){
+		//printf("1-%02x\n",a[n]);
+		a[n] = ~(a[n]);
+		//printf("2-%02x\n",a[n]);
+		n++;
+	}
+
+	big_print(a);
+
+	big_sum(res, a, num_1);
 
 	return ;
 }
