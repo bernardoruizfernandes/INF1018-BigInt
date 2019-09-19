@@ -30,27 +30,29 @@ int main (void){
 
 	/* prints */
 	
-	//printf("\n\nBigInt 1 _________________________\n");
-	//big_print2(numb_1);
+	printf("\n\nBigInt 1 _________________________\n");
+	big_print2(numb_1);
 
-	//printf("\n\nBigInt 2 _________________________\n");
-	//big_print2(numb_2);
+	printf("\n\nBigInt 2 _________________________\n");
+	big_print2(numb_2);
 
-	//printf("\n\nBigInt 3 _________________________\n");
-	//big_print2(numb_3);
+	printf("\n\nBigInt 3 _________________________\n");
+	big_print2(numb_3);
 	
+	printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 
 /* ======= comparacao dos bigints ======= */
-	//big_comp2(numb_c1, numb_1);
+	big_comp2(numb_c1, numb_1);
 	big_comp2(numb_c2, numb_2);
 
 	/* prints */
-	//printf("\n\ninverte a2 (1) _________________________\n");
-	//big_print2(numb_c1);
+	printf("\n\ninverte a2 (1) _________________________\n");
+	big_print2(numb_c1);
 
 	printf("\n\ninverte a2 (2) _________________________\n");
 	big_print2(numb_c2);
 	
+	printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 
 /* ======= somando bigints ======= */
 	big_sum(numb_s12, numb_1, numb_2);
@@ -58,11 +60,13 @@ int main (void){
 	
 	/* prints */
 
-	//printf("\n\nSoma (1)(2) _________________________\n");
-	//big_print2(numb_s12);
+	printf("\n\nSoma (1)(2) _________________________\n");
+	big_print2(numb_s12);
 
-	//printf("\n\nSoma (1)(3) _________________________\n");
-	//big_print2(numb_s13);
+	printf("\n\nSoma (1)(3) _________________________\n");
+	big_print2(numb_s13);
+
+	printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 
 	return 0;
 }	

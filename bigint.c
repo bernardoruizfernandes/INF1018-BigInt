@@ -8,7 +8,7 @@
 /* Print do BigInt */
 void big_print(BigInt res){
 	
-	int n = 16;
+	unsigned int n = 16;
 
 	while(n--)
 		printf("%02x", res[n]);
@@ -23,7 +23,7 @@ void big_print(BigInt res){
 void dump (void *p, int n, BigInt res) {
 
 	unsigned char *p1 = p;
-	int a = 0;
+	unsigned int a = 0;
 
 	while (n--) {
 		res[a] = *p1;
@@ -32,9 +32,10 @@ void dump (void *p, int n, BigInt res) {
 	}
 }
 
+
 void big_val (BigInt res, long val){
 
-	int k = 8;
+	unsigned int k = 8;
 
 	dump(&val, sizeof(val), res);
 
@@ -61,7 +62,7 @@ void big_sum(BigInt res, BigInt a, BigInt b){
 
 		s = a[n] + b[n] + ext;
 		res[n] = s%256;
-		ext = (s/255);
+		ext = (s/256);
 		n++;
 
 	}
@@ -70,25 +71,20 @@ void big_sum(BigInt res, BigInt a, BigInt b){
 
 	
 
-
 /* res = -a */
 void big_comp2(BigInt res, BigInt a){
 
-	int n = 0;
-	BigInt num_1;
+	unsigned int n = 0;
+	BigInt num_1, invet;
 
 	big_val(num_1,1);
 	
 	while (n<16){
-		//printf("1-%02x\n",a[n]);
-		a[n] = ~(a[n]);
-		//printf("2-%02x\n",a[n]);
+		invet[n] = ~a[n];
 		n++;
 	}
 
-	big_print(a);
-
-	big_sum(res, a, num_1);
+	big_sum(res, invet, num_1);
 
 	return ;
 }
