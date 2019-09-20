@@ -20,7 +20,9 @@ int main (void){
 	long num2 = 1;
 	long num3 = 1000;
 	BigInt numb_1, numb_2, numb_3;
-	BigInt numb_c1, numb_c2, numb_s12, numb_s13;
+	BigInt numb_c1, numb_c2;
+	BigInt numb_sm12, numb_sm13;
+	BigInt numb_sb12, numb_sb13;
 
 
 /* ======= fazendo os bigints ======= */
@@ -55,16 +57,31 @@ int main (void){
 	printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 
 /* ======= somando bigints ======= */
-	big_sum(numb_s12, numb_1, numb_2);
-	big_sum(numb_s13, numb_1, numb_3);
+	big_sum(numb_sm12, numb_1, numb_2);
+	big_sum(numb_sm13, numb_1, numb_3);
 	
 	/* prints */
 
 	printf("\n\nSoma (1)(2) _________________________\n");
-	big_print2(numb_s12);
+	big_print2(numb_sm12);
 
 	printf("\n\nSoma (1)(3) _________________________\n");
-	big_print2(numb_s13);
+	big_print2(numb_sm13);
+
+	printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+
+
+/* ======= subtraindo bigints ======= */
+	big_sub(numb_sb12, numb_1, numb_2);
+	big_sub(numb_sb13, numb_1, numb_3);
+	
+	/* prints */
+
+	printf("\n\nSoma (1)(2) _________________________\n");
+	big_print2(numb_sb12);
+
+	printf("\n\nSoma (1)(3) _________________________\n");
+	big_print2(numb_sb13);
 
 	printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 

@@ -90,6 +90,18 @@ void big_comp2(BigInt res, BigInt a){
 }
 
 
+/* res = a - b */
+void big_sub(BigInt res, BigInt a, BigInt b){
+
+	BigInt b_neg;
+
+	big_comp2(b_neg,b);
+	big_sum(res, a, b_neg);
+
+	return;
+}
+
+
 
 
 
