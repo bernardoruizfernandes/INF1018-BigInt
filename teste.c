@@ -21,8 +21,9 @@ int main (void){
 	long num3 = 1000;
 	BigInt numb_1, numb_2, numb_3;
 	BigInt numb_c1, numb_c2;
-	BigInt numb_sm12, numb_sm13;
+	BigInt numb_sm12, numb_sm13, numb_sm11;
 	BigInt numb_sb12, numb_sb13;
+	BigInt numb_sl1, numb_sl11, numb_sl2;
 
 
 /* ======= fazendo os bigints ======= */
@@ -59,6 +60,7 @@ int main (void){
 /* ======= somando bigints ======= */
 	big_sum(numb_sm12, numb_1, numb_2);
 	big_sum(numb_sm13, numb_1, numb_3);
+	big_sum(numb_sm11, numb_1, numb_1);
 	
 	/* prints */
 
@@ -67,6 +69,9 @@ int main (void){
 
 	printf("\n\nSoma (1)(3) _________________________\n");
 	big_print2(numb_sm13);
+
+	printf("\n\nSoma (1)(1) _________________________\n");
+	big_print2(numb_sm11);
 
 	printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 
@@ -84,6 +89,25 @@ int main (void){
 	big_print2(numb_sb13);
 
 	printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+
+
+/* ======= shift =======*/
+	big_shl(numb_sl1,numb_1, 10);
+	big_shl(numb_sl11,numb_sm11, 50);
+	big_shl(numb_sl2,numb_2, 50);
+
+	/* prints */
+
+	printf("\n\nLeft Shift (1)(10) _________________________\n");
+	big_print2(numb_sl1);
+
+	printf("\n\nLeft Shift (1+1)(50) _________________________\n");
+	big_print2(numb_sl11);
+
+	printf("\n\nLeft Shift (2)(50) _________________________\n");
+	big_print2(numb_sl2);
+
+
 
 	return 0;
 }	

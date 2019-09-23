@@ -5,7 +5,7 @@
 #include "bigint.h"
 
 
-/* Print do BigInt */
+/* Print do BigInt ----------------------------------------------------------------- */
 void big_print(BigInt res){
 	
 	unsigned int n = 16;
@@ -18,7 +18,7 @@ void big_print(BigInt res){
 }
 
 
-/* Atribuição (com extensão) */
+/* Atribuição (com extensão) ------------------------------------------------------- */
 
 void dump (void *p, int n, BigInt res) {
 
@@ -50,10 +50,10 @@ void big_val (BigInt res, long val){
 
 
 
-/* Operações Aritméticas */
+/* Operações Aritméticas ----------------------------------------------------------- */
 
 
-/* res = a + b */
+/* res = a + b - - - - - - - - - - - - - - - - - - */
 void big_sum(BigInt res, BigInt a, BigInt b){
 
 	unsigned int s, ext = 0, n = 0;
@@ -71,7 +71,7 @@ void big_sum(BigInt res, BigInt a, BigInt b){
 
 	
 
-/* res = -a */
+/* res = -a  - - - - - - - - - - - - - - - - - - - */
 void big_comp2(BigInt res, BigInt a){
 
 	unsigned int n = 0;
@@ -90,7 +90,7 @@ void big_comp2(BigInt res, BigInt a){
 }
 
 
-/* res = a - b */
+/* res = a - b - - - - - - - - - - - - - - - - - - */
 void big_sub(BigInt res, BigInt a, BigInt b){
 
 	BigInt b_neg;
@@ -105,8 +105,34 @@ void big_sub(BigInt res, BigInt a, BigInt b){
 
 
 
+/* Operações de Deslocamento ------------------------------------------------------- */
 
+/* res = a << n - - - - - - - - - - - - - - - - - -*/
+void big_shl(BigInt res, BigInt a, int n){
+
+	int c, b = 0 , t = 0, i= 0;
+
+	while(n>8){
 	
+		res[t]= 0;
+		t++;
+		n-=8;
+	}
+
+	while(t<16){
+
+		c = a[i]<<(n);
+		res[t] = c + b;
+		b = a[i]>>(8-n);
+		i++;
+		t++;
+	}
+
+	return;
+}
+
+
+
 
 
 
