@@ -24,6 +24,7 @@ int main (void){
 	BigInt numb_sm12, numb_sm13, numb_sm11;
 	BigInt numb_sb12, numb_sb13;
 	BigInt numb_sl1, numb_sl11, numb_sl2;
+	BigInt numb_m1, numb_m2, numb_m3;
 
 
 /* ======= fazendo os bigints ======= */
@@ -87,6 +88,28 @@ int main (void){
 
 	printf("\n\nSoma (1)(3) _________________________\n");
 	big_print2(numb_sb13);
+
+	printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+
+
+/* ======= fazendo as multiplicacoes ======= */
+
+	big_mul(numb_m1, numb_1, numb_2);
+	big_mul(numb_m2, numb_1, numb_3);
+	big_mul(numb_m3, numb_2, numb_3);
+
+
+
+	/* prints */
+	
+	printf("\n\nMultiplicacao (1)(2) _________________________\n");
+	big_print2(numb_m1);
+
+	printf("\n\nMultiplicacao (1)(3) _________________________\n");
+	big_print2(numb_m2);
+
+	printf("\n\nMultiplicacao (2)(3) _________________________\n");
+	big_print2(numb_m3);
 
 	printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 

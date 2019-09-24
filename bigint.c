@@ -48,6 +48,32 @@ void big_val (BigInt res, long val){
 }
 
 
+/* Operações de Deslocamento ------------------------------------------------------- */
+
+/* res = a << n - - - - - - - - - - - - - - - - - -*/
+void big_shl(BigInt res, BigInt a, int n){
+
+	int c, b = 0 , t = 0, i= 0;
+
+	while(n>8){
+	
+		res[t]= 0;
+		t++;
+		n-=8;
+	}
+
+	while(t<16){
+
+		c = a[i]<<(n);
+		res[t] = c + b;
+		b = a[i]>>(8-n);
+		i++;
+		t++;
+	}
+
+	return;
+}
+
 
 
 /* Operações Aritméticas ----------------------------------------------------------- */
@@ -102,34 +128,40 @@ void big_sub(BigInt res, BigInt a, BigInt b){
 }
 
 
+/* res = a * b - - - - - - - - - - - - - - - - - - */
+void big_mul(BigInt res, BigInt a, BigInt b){
 
+	int n = 0, i, t, m = 0, ext;
+	BigInt c, d;
 
+	big_val(res, 0);
+	big_val(res, 0);
 
-/* Operações de Deslocamento ------------------------------------------------------- */
+	while (n<16){
 
-/* res = a << n - - - - - - - - - - - - - - - - - -*/
-void big_shl(BigInt res, BigInt a, int n){
+		i = 0;
+		ext = 0;
+		while(i<16){
 
-	int c, b = 0 , t = 0, i= 0;
+			t = (a[i]*b[n])+ext;
+			ext = t/256;
+			c[i] = t%256;
 
-	while(n>8){
-	
-		res[t]= 0;
-		t++;
-		n-=8;
+			i++;
+
+		}
+		big_shl(d,c,m);
+		big_sum(res, res, d);
+		m+=8;
+		n++;
 	}
-
-	while(t<16){
-
-		c = a[i]<<(n);
-		res[t] = c + b;
-		b = a[i]>>(8-n);
-		i++;
-		t++;
-	}
-
 	return;
+
 }
+
+
+
+
 
 
 
