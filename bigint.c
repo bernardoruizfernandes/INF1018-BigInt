@@ -17,6 +17,10 @@ void big_print(BigInt res){
 	return;
 }
 
+void printCasa(BigInt res, int n){
+	printf("%02x", res[n]);
+}
+
 
 /* Atribuição (com extensão) ------------------------------------------------------- */
 
@@ -73,6 +77,56 @@ void big_shl(BigInt res, BigInt a, int n){
 
 	return;
 }
+
+/*res = a >> n (logico)- - - - - - - - - - - - - -*/
+
+void big_shr (BigInt res, BigInt a, int n){
+	
+	int c, b = 0, t = 15, i = 15;
+
+	while (n > 8){
+		res[t] = 0;
+		t--;
+		n-=8;
+	}
+
+	while ( t > -1){
+		c = a[i] >> (n);
+		res[t] = c + b;
+		b = a[i] << (8-n);
+		i--;
+		t--;
+	}
+
+	return;
+}
+
+/*res = a >> n (aritimetico)- - - - - - - - - - - - - -*/
+
+void big_sar (BigInt res, BigInt a, int n){
+	
+
+int c, ms, t = 15, i = 15, b = 0;
+
+	ms = a[15]>>(7);
+
+		while (n > 8){
+		res[t] = ms;
+		t--;
+		n-=8;
+	}
+
+	while ( t > -1){
+		c = a[i] >> (n);
+		res[t] = c + b;
+		b = a[i] << (8-n);
+		i--;
+		t--;
+	}
+
+		return;
+}
+
 
 
 
@@ -158,14 +212,5 @@ void big_mul(BigInt res, BigInt a, BigInt b){
 	return;
 
 }
-
-
-
-
-
-
-
-
-
 
 

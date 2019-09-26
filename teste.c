@@ -19,7 +19,8 @@ int main (void){
 	long num = 1000000;
 	long num2 = 1;
 	long num3 = 1000;
-	BigInt numb_1, numb_2, numb_3;
+	long num4 = 5000;
+	BigInt numb_1, numb_2, numb_3, numb_4;
 	BigInt numb_c1, numb_c2;
 	BigInt numb_sm12, numb_sm13, numb_sm11;
 	BigInt numb_sb12, numb_sb13;
@@ -31,6 +32,7 @@ int main (void){
 	big_val(numb_1, num);
 	big_val(numb_2, num2);
 	big_val(numb_3, num3);
+	big_val(numb_4, num4);
 
 	/* prints */
 	
@@ -111,7 +113,7 @@ int main (void){
 	printf("\n\nMultiplicacao (2)(3) _________________________\n");
 	big_print2(numb_m3);
 
-	printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+	printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-= Left Shift -=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 
 
 /* ======= shift =======*/
@@ -131,6 +133,42 @@ int main (void){
 	big_print2(numb_sl2);
 
 
+printf("\n=-=-=-=-=-=-=-=-=-=-= Right Logical Shift -=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+/*======= Right Logical Shift =======*/
+
+	big_shr(numb_sl1,numb_1, 10);
+	big_shr(numb_sl11,numb_3, 5);
+	big_shr(numb_sl2,numb_4, 12);
+
+	/* prints */
+
+	printf("\n\nRight Logical Shift (10) _________________________\n"); 
+	big_print2(numb_sl1);
+
+	printf("\n\nRight Logical Shift (5) _________________________\n");
+	big_print2(numb_sl11);
+
+	printf("\n\nRight Logical Shift (12) _________________________\n");
+	big_print2(numb_sl2);
+
+
+printf("\n=-=-=-=-=-=-=-=-=-= Right Arithmetic Shift -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+/*======= Right Arithmetic Shift =======*/
+
+	big_sar(numb_sl1,numb_1, 10);
+	big_sar(numb_sl11,numb_3, 5);
+	big_sar(numb_sl2,numb_4, 12);
+
+	/* prints */
+
+	printf("\n\nRight Arithmetic Shift (10) _________________________\n");
+	big_print2(numb_sl1);
+
+	printf("\n\nRight Arithmetic Shift (5) _________________________\n");
+	big_print2(numb_sl11);
+
+	printf("\n\nRight Arithmetic Shift (12) _________________________\n");
+	big_print2(numb_sl2);
 
 	return 0;
-}	
+}
