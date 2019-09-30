@@ -19,7 +19,7 @@ int main (void){
 	long num = 1000000;
 	long num2 = -5;
 	BigInt numb_1, numb_2;
-	BigInt numb_c1, numb_c2;
+	BigInt numb_sr1, numb_sr2;
 
 
 
@@ -27,20 +27,20 @@ int main (void){
 	big_val(numb_1, num);
 	big_val(numb_2, num2);
 
-	big_comp2(numb_c1, numb_1);
-	big_comp2(numb_c2, numb_2);
+	big_shr(numb_sr1,numb_1, 10);
+	big_shr(numb_sr2,numb_2, 5);
 
 
 
 	/* prints */
 	
 	printf("\n\n_______ BigInt 1 ___________________________\n");
-	big_print2(numb_1);
-	big_print2(numb_c1);
+	big_print(numb_1);
+	big_print(numb_sr1);
 
 	printf("\n\n_______ BigInt 2 ___________________________\n");
-	big_print2(numb_2);
-	big_print2(numb_c2);
+	big_print(numb_2);
+	big_print(numb_sr2);
 
 
 

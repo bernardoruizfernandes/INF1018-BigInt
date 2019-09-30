@@ -17,11 +17,6 @@ void big_print(BigInt res){
 	return;
 }
 
-void printCasa(BigInt res, int n){
-	printf("%02x", res[n]);
-}
-
-
 /* Atribuição (com extensão) ------------------------------------------------------- */
 
 void dump (void *p, int n, BigInt res) {
@@ -39,12 +34,14 @@ void dump (void *p, int n, BigInt res) {
 
 void big_val (BigInt res, long val){
 
-	unsigned int k = 8;
+	unsigned int k = 8, u;
 
 	dump(&val, sizeof(val), res);
 
+	u = val>>63;
+
 	while (k<16){
-		res[k] = 0;
+		res[k] = u;
 		k++;
 	}
 
@@ -57,17 +54,15 @@ void big_val (BigInt res, long val){
 /* res = a << n - - - - - - - - - - - - - - - - - -*/
 void big_shl(BigInt res, BigInt a, int n){
 
-	int c, b = 0 , t = 0, i= 0;
+	int c, b = 0, t = 0, i= 0;
 
 	while(n>8){
-	
 		res[t]= 0;
 		t++;
 		n-=8;
 	}
 
 	while(t<16){
-
 		c = a[i]<<(n);
 		res[t] = c + b;
 		b = a[i]>>(8-n);
@@ -90,7 +85,7 @@ void big_shr (BigInt res, BigInt a, int n){
 		n-=8;
 	}
 
-	while ( t > -1){
+	while (t>=0){
 		c = a[i] >> (n);
 		res[t] = c + b;
 		b = a[i] << (8-n);
@@ -106,11 +101,11 @@ void big_shr (BigInt res, BigInt a, int n){
 void big_sar (BigInt res, BigInt a, int n){
 	
 
-int c, ms, t = 15, i = 15, b = 0;
+	int c, ms, t = 15, i = 15, b = 0;
 
 	ms = a[15]>>(7);
 
-		while (n > 8){
+	while (n > 8){
 		res[t] = ms;
 		t--;
 		n-=8;
@@ -124,7 +119,7 @@ int c, ms, t = 15, i = 15, b = 0;
 		t--;
 	}
 
-		return;
+	return;
 }
 
 
@@ -139,13 +134,12 @@ void big_sum(BigInt res, BigInt a, BigInt b){
 	unsigned int s, ext = 0, n = 0;
 
 	while (n<16){
-
 		s = a[n] + b[n] + ext;
 		res[n] = s%256;
 		ext = (s/256);
 		n++;
-
 	}
+
 	return;
 }	
 
@@ -189,7 +183,6 @@ void big_mul(BigInt res, BigInt a, BigInt b){
 	BigInt c, d;
 
 	big_val(res, 0);
-	big_val(res, 0);
 
 	while (n<16){
 
@@ -200,17 +193,15 @@ void big_mul(BigInt res, BigInt a, BigInt b){
 			t = (a[i]*b[n])+ext;
 			ext = t/256;
 			c[i] = t%256;
-
 			i++;
-
 		}
+
 		big_shl(d,c,m);
 		big_sum(res, res, d);
 		m+=8;
 		n++;
 	}
 	return;
-
 }
 
 
