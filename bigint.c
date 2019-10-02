@@ -5,18 +5,6 @@
 #include "bigint.h"
 
 
-/* Print do BigInt ----------------------------------------------------------------- */
-void big_print(BigInt res){
-	
-	unsigned int n = 16;
-
-	while(n--)
-		printf("%02x", res[n]);
-
-	printf("\n");
-	return;
-}
-
 /* Atribuição (com extensão) ------------------------------------------------------- */
 
 void dump (void *p, int n, BigInt res) {
