@@ -89,9 +89,11 @@ void big_shr (BigInt res, BigInt a, int n){
 void big_sar (BigInt res, BigInt a, int n){
 	
 
-	int c, ms, t = 15, i = 15, b = 0;
+	int c, bsig, ms = 0, t = 15, i = 15, b = 0;
 
-	ms = a[15]>>(7);
+	bsig = a[15]>>7;
+	if (bsig==1)
+		ms = 0xFF;
 
 	while (n > 8){
 		res[t] = ms;
@@ -99,6 +101,8 @@ void big_sar (BigInt res, BigInt a, int n){
 		n-=8;
 	}
 
+	b = ms<<(8-n);
+	
 	while ( t > -1){
 		c = a[i] >> (n);
 		res[t] = c + b;
