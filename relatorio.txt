@@ -1,0 +1,47 @@
+1º TRABALHO SOFTWARE BASICO - 2019.2
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Alunos:     
+Bernardo Ruiz Fernandes - 1711180 - 3wb
+Rafael Barbosa -  - 3wb
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Todas as funções propostas para o trabalho funcionaram devidamente.
+
+	big_val(BigInt res, long val) - ok.
+	big_comp2(BigInt res, BigInt a) - ok.
+	big_sum(BigInt res, BigInt a, BigInt b) - ok.
+	big_sub(BigInt res, BigInt a, BigInt b) - ok.
+	big_shl(BigInt res, BigInt a, int n) - ok.
+	big_shr (BigInt res, BigInt a, int n) - ok.
+	big_mul (BigInt res, BigInt a, BigInt b) - ok.
+
+O documento bigint.c possui todas funções propostas mais a função dump.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Foram testados os seguintes valores:
+
+	1. No big_val:
+    
+		- 0x00000000    (0)
+		- 0x00000001    (1)
+		- 0xFFFFFFFF    (-1)
+		- 0x000F4240    (1000000)
+		- 0x004c4b40    (5000000)
+		- 0xFe363c80    (-30000000)
+		- 0x4e72a000    (1316134912)
+
+
+    
+	2. Nas Funções restantes:
+        
+		- 0x0000000000000000    (0)
+		- 0x0000000000000001    (1)
+		- 0xFFFFFFFFFFFFFFFF    (-1)
+		- 0x00000000000F4240    (1000000)
+		- 0x00000000004c4b40    (5000000)
+		- 0xFFFFFFFFFe363c80    (-30000000)
+		- 0xF34a24bf4e72a000    (1.7530864903567E+19)
+		- 0x4563918244f40000    (5000000000000000000)
+
