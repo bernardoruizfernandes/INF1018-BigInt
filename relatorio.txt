@@ -1,47 +1,65 @@
 1º TRABALHO SOFTWARE BASICO - 2019.2
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Alunos:     
-Bernardo Ruiz Fernandes - 1711180 - 3wb
-Rafael Barbosa -  - 3wb
+Bernardo Ruiz Fernandes - 1711180 - 3wa
+Rafael Barbosa          - 1720736 - 3wa
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 Todas as funções propostas para o trabalho funcionaram devidamente.
 
-	big_val(BigInt res, long val) - ok.
-	big_comp2(BigInt res, BigInt a) - ok.
-	big_sum(BigInt res, BigInt a, BigInt b) - ok.
+	big_val(BigInt res, long val) 		- ok.
+	big_comp2(BigInt res, BigInt a) 	- ok.
+	big_sum(BigInt res, BigInt a, BigInt b)	- ok.
 	big_sub(BigInt res, BigInt a, BigInt b) - ok.
-	big_shl(BigInt res, BigInt a, int n) - ok.
-	big_shr (BigInt res, BigInt a, int n) - ok.
-	big_mul (BigInt res, BigInt a, BigInt b) - ok.
+	big_shl(BigInt res, BigInt a, int n) 	- ok.
+	big_shr (BigInt res, BigInt a, int n) 	- ok.
+	big_sar (BigInt res, BigInt a, int n) 	- ok.
+	big_mul (BigInt res, BigInt a, BigInt b)- ok.
 
-O documento bigint.c possui todas funções propostas mais a função dump.
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Foram testados os seguintes valores:
 
-	1. No big_val:
-    
-		- 0x00000000    (0)
-		- 0x00000001    (1)
-		- 0xFFFFFFFF    (-1)
-		- 0x000F4240    (1000000)
-		- 0x004c4b40    (5000000)
-		- 0xFe363c80    (-30000000)
-		- 0x4e72a000    (1316134912)
+	a. Soma
+		0x000F4240 + 80 			= 000000000000000000000000000f4290
+		4500000 + (-3000)			= 00000000000000000000000000449e68
+		10 + 0					= 0000000000000000000000000000000a
+		0x00000032 + (-1000)			= fffffffffffffffffffffffffffffc4a
+
+	b. Subtracao
+		0x000F4240 - 80 			= 00000000000000000000000000018650
+		4500000 - (-3000)			= 0000000000000000000000000044b5d8
+		10 - 0					= 0000000000000000000000000000000a
+		0x00000032 - 1000			= ffffffffffffffffffffffffffffd922
+
+	c. Multiplicacao
+		0x000F4240 * 7 				= 000000000000000000000000006acfc0
+		4500000 * (-3000)			= fffffffffffffffffffffffcdb565900
+		10 * 0					= 00000000000000000000000000000000
+
+	d. Complemento a 2
+		0x01					= ffffffffffffffffffffffffffffffff
+		-12					= 0000000000000000000000000000000c
+		0					= 00000000000000000000000000000000
+		1000000000				= fffffffffffffffffffffffc46533600
+
+	e. shift left
+		500<<10					= 0000000000000000000000000007d000
+		0x01<<5					= 00000000000000000000000000000020
+		-5400<<90				= ffffffaba00000000000000000000000
+		0<<120					= 00000000000000000000000000000000
+
+	f. shift right Logico
+		-529>>80				= 00000000000000000000ffffffffffff
+		10000000>>7				= 0000000000000000000000000001312d
+		0>>25					= 00000000000000000000000000000000
+
+	g. shift right Aritimetico
+		-529>>80				= ffffffffffffffffffffffffffffffff
+		10000000>>7				= 0000000000000000000000000001312d
+		0>>25					= 00000000000000000000000000000000
 
 
-    
-	2. Nas Funções restantes:
-        
-		- 0x0000000000000000    (0)
-		- 0x0000000000000001    (1)
-		- 0xFFFFFFFFFFFFFFFF    (-1)
-		- 0x00000000000F4240    (1000000)
-		- 0x00000000004c4b40    (5000000)
-		- 0xFFFFFFFFFe363c80    (-30000000)
-		- 0xF34a24bf4e72a000    (1.7530864903567E+19)
-		- 0x4563918244f40000    (5000000000000000000)
+
 
